@@ -1,7 +1,4 @@
 function solve(num) {
-    result = (num * num);
+    result = (num * 2);
     console.log(result);
 }
-
-solve(5)
-solve(10)
