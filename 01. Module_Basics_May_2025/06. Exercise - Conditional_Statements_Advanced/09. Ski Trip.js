@@ -1,4 +1,5 @@
-function solve(periodOfStay, roomType, review) {
+function solve(days, roomType, review) {
+    let periodOfStay = days - 1;
     let roomPrice;
     let discountMain;
     let discountAdditional;
@@ -43,7 +44,8 @@ function solve(periodOfStay, roomType, review) {
             discountAdditional = -0.25;
             break;
         case "negative":
-            discountAdditional = 0.10
+            discountAdditional = 0.10;
+            break;
     }
 
     let finalCostRoom = totalCostRoom * (1-discountAdditional);
