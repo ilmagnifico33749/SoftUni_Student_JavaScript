@@ -5,22 +5,26 @@ function solve(examHour, examMinutes, arrivalHour, arrivalMinutes) {
     
     let examTimeAbsMins = (examHour * 60) + examMinutes;
     let arrivalTimeAbsMins = (arrivalHour * 60) + arrivalMinutes;
-    let diffExamArrivalMins = examTimeAbsMins - arrivalTimeAbsMins;
+    let diffExamArrivalMins = Math.abs(examTimeAbsMins - arrivalTimeAbsMins);
 
     let hoursDiff = 0;
     let minutesDiff = 0;
 
     if (diffExamArrivalMins >= 60) {
-    hoursDiff = (diffExamArrivalMins / 60); 
-    minutesDiff = diffExamArrivalMins % 60;
-    if (minutesDiff < 10) {
-        minutesDiff = `0${minutesDiff}`
+        hoursDiff = Math.trunc(diffExamArrivalMins / 60); 
+        minutesDiff = diffExamArrivalMins % 60;
+            if (minutesDiff < 10) {
+                minutesDiff = `0${minutesDiff}`;
+            }
+        }
+    else {
+        minutesDiff = Math.abs(diffExamArrivalMins);
     }
 
 
     if (examTimeAbsMins < arrivalTimeAbsMins) {
         arrivalStatus = "Late";
-        }
+        
         if (hoursDiff > 0) {
             resolution = `${hoursDiff}:${minutesDiff} hours after the start`;
         }
@@ -40,7 +44,7 @@ function solve(examHour, examMinutes, arrivalHour, arrivalMinutes) {
         if (diffExamArrivalMins < 60) {
             resolution = `${minutesDiff} minutes before the start`;
         }
-        else if (diffExamArrivalMins > 60) {
+        else if (diffExamArrivalMins >= 60) {
             resolution = `${hoursDiff}:${minutesDiff} hours before the start`;
         }
     }
@@ -50,9 +54,6 @@ function solve(examHour, examMinutes, arrivalHour, arrivalMinutes) {
         console.log(resolution);
     };
 }
-
-
-
 
 solve(9, 30, 9, 50);
 solve(9, 00, 8, 30);

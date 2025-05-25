@@ -29,7 +29,7 @@ function solve(examHour, examMinutes, arrivalHour, arrivalMinutes) {
         }
 
         else if ((examHour < arrivalHour && examMinutes <= arrivalMinutes)) {
-            totalDiffMinutes = ((Math.abs(examHour - arrivalHour)) * 60) - Math.abs(examMinutes - arrivalMinutes);
+            totalDiffMinutes = ((Math.abs(examHour - arrivalHour)) * 60) + Math.abs(examMinutes - arrivalMinutes);
         }
 
         else if ((examHour > arrivalHour && examMinutes < arrivalMinutes)) {
@@ -40,7 +40,7 @@ function solve(examHour, examMinutes, arrivalHour, arrivalMinutes) {
         }
 
     if (totalDiffMinutes >= 60) {
-        hoursDiff = (totalDiffMinutes/60).toFixed(0);
+        hoursDiff = Math.trunc(totalDiffMinutes/60);
         minutesDiff = totalDiffMinutes % 60;
         if (minutesDiff < 10) {
             minutesDiff = `0${minutesDiff}`;
