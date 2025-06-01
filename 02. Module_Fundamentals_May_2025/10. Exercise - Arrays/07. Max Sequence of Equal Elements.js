@@ -10,17 +10,18 @@ function solve(arr) {
         if (currentElement === nextElement) {
             currentSequence.push(currentElement);
         }
+
         else {
+            
             if (currentElement === previousElement) {
                 currentSequence.push(currentElement);
             }
+
             if (currentSequence.length > sequenceEqualElements.length) {
             sequenceEqualElements = currentSequence;
             }
             currentSequence = [];
         }
-
-
     }
 
     console.log(sequenceEqualElements.join(" "))
