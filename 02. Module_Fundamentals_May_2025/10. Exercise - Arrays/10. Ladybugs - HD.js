@@ -13,7 +13,7 @@ function solve(userInput) {
         let directionNewPostion = elementsNextPosition[1];
         let newPositionColumn = elementsNextPosition[2];
 
-        if (directionNewPostion === "left)" {
+        if (directionNewPostion === "left") {
             
         }
         
