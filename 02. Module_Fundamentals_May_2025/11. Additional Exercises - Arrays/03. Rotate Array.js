@@ -1,6 +1,5 @@
 function rotateArray(arrInp) {
   let timesToRotate = arrInp.pop();
-  console.log(timesToRotate);
 
   for (let rotations = timesToRotate; rotations > 0; rotations--) {
       let currentElement = arrInp.pop();
