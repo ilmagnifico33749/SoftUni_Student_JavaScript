@@ -6,7 +6,7 @@ function rotateArray(arrInp) {
       let currentElement = arrInp.pop();
       arrInp.unshift(currentElement);
   }
-  console.log(arrInp);
+  console.log(arrInp.join(" "));
 }
 
 rotateArray(['1', '2', '3', '4', '2']);
