@@ -24,7 +24,6 @@ function magicMatrices(matrixInp) {
         }
     }
 
-    
     function columnsSumsCheck(matricesInp) {
             let sumFirstColumn = 0;
             for (let columnIndex = 0; columnIndex<matricesInp.length; columnIndex++) {
@@ -57,7 +56,7 @@ function magicMatrices(matrixInp) {
         columnsSumsCheck(matrixInp);
     }
 
-    return console.log(validity);
+    return validity;
 }
 
 magicMatrices([[4, 5, 6], [6, 5, 4], [5, 5, 5]]);
