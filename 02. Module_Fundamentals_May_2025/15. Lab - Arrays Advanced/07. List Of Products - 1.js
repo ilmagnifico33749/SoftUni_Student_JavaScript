@@ -3,7 +3,7 @@ function listOfProducts(arrInp) {
 
     for (let index=0; index<arrSorted.length; index++) {
         let currentElement = arrSorted[index];
-        console.log(`${index+1}. ${currentElement}`);
+        console.log(`${index+1}.${currentElement}`);
     }
 }
 
