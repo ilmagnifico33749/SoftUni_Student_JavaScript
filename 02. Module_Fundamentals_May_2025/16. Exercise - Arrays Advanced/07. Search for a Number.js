@@ -10,7 +10,6 @@ function searchNumber(arr1, arr2) {
         .filter(x => x==numToSearchFor)
         .length;
 
-
     console.log(`Number ${numToSearchFor} occurs ${count} times.`);
 }
 
