@@ -1,4 +1,6 @@
 function songs(arrInp) {
+  let songsList = [];
+
   class Song {
     constructor(typeList, name, time) {
       this.typeList = typeList;
@@ -15,7 +17,14 @@ function songs(arrInp) {
     let currentSongName = currentSongDetails[1];
     let currentSongTime = currentSongDetails[2];
     let song = new Song(currentSongPlaylist, currentSongName, currentSongTime)
-    
+    songsList.push(song);
+
+  }
+
+  for (let currentSong of songsList) {
+    if (playlistToPlay == "all" || playlistToPlay == currentSong.typeList) {
+      console.log(currentSong.name);
+    }
   }
 }
 
