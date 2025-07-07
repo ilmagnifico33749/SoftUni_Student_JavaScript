@@ -9,7 +9,7 @@ function towns(arrInp) {
         let townObj = {
             town: currentTownName,
             latitude: Number(currentTownLatitude).toFixed(2),
-            longuitude: Number(currentTownLongitude).toFixed(2)
+            longitude: Number(currentTownLongitude).toFixed(2)
         }
         listTowns.push(townObj);
 
