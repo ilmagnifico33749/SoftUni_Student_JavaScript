@@ -22,13 +22,9 @@ function oddOcurrencesFunction(strInp) {
         }
 
         wordsChecked.push(currentWord);
-
-
     }
 
     console.log(oddOcurrencesArr.join(" "));
-
-
 }
 
 oddOcurrencesFunction('Java C# Php PHP Java PhP 3 C# 3 1 5 C#');
