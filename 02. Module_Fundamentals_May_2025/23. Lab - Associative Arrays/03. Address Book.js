@@ -13,7 +13,6 @@ function addressBookfunction(arrInp) {
     for (let [name, address] of addressBookArray) {
         console.log(`${name} -> ${address}`);
     }
-
 }
 
 
