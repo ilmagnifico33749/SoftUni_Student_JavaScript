@@ -25,8 +25,8 @@ function piccoloFunction(arrInp) {
     else {
         console.log(`Parking Lot is Empty`)
     }
-
 }
+
 
 piccoloFunction(
     [
