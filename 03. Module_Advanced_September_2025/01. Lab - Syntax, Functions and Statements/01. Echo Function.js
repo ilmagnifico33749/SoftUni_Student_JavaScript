@@ -7,4 +7,3 @@ function echoFunction(strInp) {
 
 echoFunction('Hello, JavaScript!');
 echoFunction('strings are easy');
-
