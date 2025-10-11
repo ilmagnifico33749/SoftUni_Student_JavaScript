@@ -2,7 +2,6 @@ function evenPositionElement(arrInp) {
     let output = "";
     for (let i=0; i < arrInp.length; i++) {
         if (i%2==0) {
-            console.log(arrInp[i])
             output += `${arrInp[i]} `
         }
     }
