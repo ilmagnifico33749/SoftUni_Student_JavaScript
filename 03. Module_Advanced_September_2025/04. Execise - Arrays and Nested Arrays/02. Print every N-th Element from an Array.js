@@ -1,9 +1,10 @@
 function printEveryNElement(arrInp, evElToPrint) {
-    let finalArr = [];
-    for (let i=0; i<arrInp.length; i+evElToPrint) {
-        finalArr.push(arrInp[i]);
-    }
 
+    let finalArr = [];
+    for (let i=0; i<arrInp.length; i+=evElToPrint) {
+            finalArr.push(arrInp[i])
+    }
+    
     return finalArr;
 }
 
