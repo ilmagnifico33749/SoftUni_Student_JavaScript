@@ -2,38 +2,47 @@ function magicMatrixes(matrixInp) {
     let matrixLength = matrixInp.length;
     let rowLength = matrixInp[0].length;
     let magicalStatus = true;
-    
 
-    for (let rowIndex=0; rowIndex<matrixLength; rowIndex++) {
+    let sumPrevRow = null;
+
+    for (let rowIndex = 0; rowIndex < matrixLength; rowIndex++) {
         let currentRow = matrixInp[rowIndex];
-        let sumCurrRow = undefined;
-        let sumPrevRow = undefined;
+        let sumCurrRow = 0;
+
         for (let currentElement of currentRow) {
             sumCurrRow += currentElement;
         }
-        if (sumPrevRow !== undefined && sumCurrRow !== sumPrevRow) {
+
+        if (sumPrevRow !== null && sumCurrRow !== sumPrevRow) {
             magicalStatus = false;
             break;
         }
-    } 
 
-    if (magicalStatus == true) {
-        for (let columnIndex=0; columnIndex<rowLength; columnIndex++) {
-            let sumCurrColumn= undefined;
-            let sumPrevColumn = undefined;
-            for (let rowIndex=0; rowIndex<matrixLength; rowIndex++) {
-                let currentElement = matrixInp[rowIndex][columnIndex];
-                sumCurrColumn += currentElement;
+        sumPrevRow = sumCurrRow;
+    }
+
+    if (magicalStatus) {
+        let sumPrevColumn = null;
+
+        for (let columnIndex = 0; columnIndex < rowLength; columnIndex++) {
+            let sumCurrColumn = 0;
+
+            for (let rowIndex = 0; rowIndex < matrixLength; rowIndex++) {
+                sumCurrColumn += matrixInp[rowIndex][columnIndex];
             }
-            if (sumPrevColumn !== undefined && sumCurrColumn !== sumPrevColumn) {
+
+            if (sumPrevColumn !== null && sumCurrColumn !== sumPrevColumn) {
                 magicalStatus = false;
                 break;
             }
+
+            sumPrevColumn = sumCurrColumn;
         }
-    } 
-    
+    }
+
     console.log(magicalStatus);
 }
+
 
 magicMatrixes(
     [
