@@ -11,68 +11,70 @@ function carFactory(carObjectRequirements) {
     }
     
     function carEngineSpecsDeterm(carObject) {
-        let carEngineTypeCurrent = "";
-        let carEngineTypeFinal;
-        if (carObject.power < 90) {
-            carEngineTypeCurrent = "Small Engine";
+        const currentCarPowerRequirements = carObject.power;
+        let currentCarEngineSpecs= {};
+
+        for (let engineType in carEngineTypes) {
+            let currentEngineType = carEngineTypes[engineType];
+            if (currentCarPowerRequirements <= currentEngineType.power) {
+                currentCarEngineSpecs.power = currentEngineType.power;
+                currentCarEngineSpecs.volume = currentEngineType.volume;
+                break;
+            }
         }
 
-        else if (carObject.power > 90 & carObject.power < 120) {
-            carEngineTypeCurrent = "Normal Engine";
-        }
-
-        else if (carObject.power > 120 && carObject.power < 200) {
-            carEngineTypeCurrent = "Monster Engine";
-        }
-
-        else if (carObject.power > 200) {
-            carEngineTypeCurrent = "Monster Engine";
-        }
-
-        if (carEngineTypes.hasOwnProperty(carEngineTypeCurrent)) {
-            carEngineTypeFinal = carEngineTypes[carEngineTypeCurrent];
-        }
-    } 
+        // console.log(currentCarEngineSpecs);
+        return currentCarEngineSpecs;
+    }
+    // carEngineSpecsDeterm(carObjectRequirements);
 
     function carCarriageSpecsDeterm(carObject) {
-        let carCarriageCurrent = "";
-        let carCarriagefinal;
-        if (carObject.carriage == "hatchback") {
-            carCarriageCurrent = "Hatchback";
+        const currentCarCarriageType = carObject.carriage.toLowerCase();
+        let currentCarCarriageSpecs = {};
+
+        for (let carriageType in carCarriageTypes) {
+            let currentCarriageType = carCarriageTypes[carriageType];
+            if (currentCarCarriageType == currentCarCarriageType) {
+                currentCarCarriageSpecs.type = currentCarCarriageType;
+                currentCarCarriageSpecs.color = carObject.color;
+            }
         }
-        else if (carObject.carriage == "coupe") {
-            carCarriageCurrent = "Coupe";
-        }
-        if (carCarriageTypes.hasOwnProperty(carCarriageCurrent)) {
-            carCarriagefinal = carCarriageTypes[carCarriageCurrent]
-        };
-        carCarriagefinal.color = carObject.color;
-        }
-        return carCarriagefinal;
+
+        // console.log(currentCarCarriageSpecs);
+        return currentCarCarriageSpecs;
+
     }
+    // carCarriageSpecsDeterm(carObjectRequirements);
+
 
     function carWheelsSpecsDeterm(carObject) {
-        let currentCarWheels = Math.floor(Number(carObject.wheelsize));
-        while (currentCarWheels % 2 != 0) {
-            currentCarWheels -= 1;
+        let currentCarWheelsType = Math.floor(Number(carObject.wheelsize));
+        let currentCarWheelsSpecs;
+        while (currentCarWheelsType % 2 == 0) {
+            currentCarWheelsType -= 1;
         }
 
-        const finalCarWheels = new Array(4).fill(10);
-        return finalCarWheels;
+        currentCarWheelsSpecs = new Array(4).fill(currentCarWheelsType);
+        // console.log(currentCarWheelsSpecs)
+        return currentCarWheelsSpecs;
     }
+    // carWheelsSpecsDeterm(carObjectRequirements);
+
     
 
-    let carObjectFinal = {
+    let carObjectFinalSpecs = {
         model: carObjectRequirements.model,
         engine: carEngineSpecsDeterm(carObjectRequirements),
         carriage: carCarriageSpecsDeterm(carObjectRequirements),
         wheels: carWheelsSpecsDeterm(carObjectRequirements)
     };
 
-    console.log(carObjectFinal);
-    return carObjectFinal;
+    console.log(carObjectFinalSpecs);
+    return carObjectFinalSpecs;
 }
 
+
+// Test Input 1:
 carFactory(
     {
         model: 'VW Golf II',
@@ -83,6 +85,7 @@ carFactory(
     }
 );
 
+// Test Input 2:
 carFactory(
     {
         model: 'Opel Vectra',
