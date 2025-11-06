@@ -2,22 +2,24 @@ function lowestPricesinCities(arrInp) {
     let registerProducts = {};
 
     for (let info of arrInp) {
-        let [cityName, productName, price] = info.split(" | ");
-        console.log(cityName, productName, price);
+        let [cityName, productName, productPrice] = info.split(" | ");
         if (
             (!registerProducts.hasOwnProperty(productName)) 
             || 
             (registerProducts.hasOwnProperty(productName)
-            &&
-            registerProducts[productName].price < price)
-            ) {
-            registerProducts[productName].price = price;
-            registerProducts[productName].city = cityName;
+                &&
+            registerProducts[productName].price > Number(productPrice))
+            ) 
+                {
+            registerProducts[productName] = {
+                price: Number(productPrice),
+                city: cityName
+            }
         }
     }
 
-    for (let product of registerProducts) {
-        console.log(product)
+    for (let product in registerProducts) {
+        console.log(`${product} -> ${registerProducts[product].price} (${registerProducts[product].city})`)
     }
 }
 
