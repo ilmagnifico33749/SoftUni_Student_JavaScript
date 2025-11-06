@@ -23,7 +23,6 @@ function lowestPricesinCities(arrInp) {
         let currentProduct = registerProducts[product];
         console.log(`${product} -> ${currentProduct.price} (${currentProduct.city})`)
     }
-
 }
 
 
@@ -34,7 +33,7 @@ lowestPricesinCities(
         'Sample Town | Sample Product | 1000',
         'Sample Town | Orange | 2',
         'Sample Town | Peach | 1',
-        'Sample Town | Sample Product | 999',
+        // 'Sample Town | Sample Product | 999',
         'Sofia | Orange | 3',
         'Sofia | Peach | 2',
         'New York | Sample Product | 1000.1',
