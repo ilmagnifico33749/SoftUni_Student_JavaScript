@@ -6,7 +6,7 @@ function storeCatalogue(arrInp) {
         return nameA.localeCompare(nameB);
         }
     );
-    console.log(sortedArrProducts);
+    // console.log(sortedArrProducts);
 
     for (let productInfo of sortedArrProducts) {
         let [productName, productPrice] = productInfo.split(" : ");
