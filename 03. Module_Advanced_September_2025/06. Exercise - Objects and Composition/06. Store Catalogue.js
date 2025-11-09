@@ -30,7 +30,6 @@ function storeCatalogue(arrInp) {
             console.log(` ${item.name}: ${item.price}`);
         }
     }      
-
 }
 
 storeCatalogue(
