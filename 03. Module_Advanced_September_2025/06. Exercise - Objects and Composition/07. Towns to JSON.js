@@ -10,8 +10,7 @@ function townToJSON(arrInp) {
 
     for (let index=0; index<columnsNamesRaw.length; index++) {
         let currentColumnName = columnsNamesRaw[index];
-        console.log(currentColumnName)
-        columnNamesRefined[`Column-${index}`] = currentColumnName;
+        columnNamesRefined[index] = currentColumnName;
     }
 
     for (let cityInfo of arrInp) {
@@ -21,15 +20,13 @@ function townToJSON(arrInp) {
             .split("|")
             .filter(part => part !== '')
             .map(x => x.trim());
-        console.log(cityName, cityLatitude, cityLongitude); 
-        cityInfoRefined[cityName, cityLatitude, cityLongitude];
+        cityInfoRefined = [cityName, Number(cityLatitude.toFixed(2)), Number(Number(cityLongitude).toFixed(2))];
         
-        for (let index in Object.keys(columnNamesRefined)) {
+        for (let index in columnNamesRefined) {
             let currentColumnName = columnNamesRefined[index];
             let currentCityStat = cityInfoRefined[index];
             currentCityObject[currentColumnName] = currentCityStat;
         }
-        console.log(currentCityObject)
         result.push(currentCityObject);
     }
     console.log(JSON.stringify(result));
