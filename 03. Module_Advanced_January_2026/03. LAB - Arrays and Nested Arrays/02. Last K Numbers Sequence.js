@@ -19,7 +19,8 @@ function lastKnumbersSequence(n, k) {
         }
     }
 
-    console.log(finalArr);
+    // console.log(finalArr);
+    return finalArr;
 }
 
 lastKnumbersSequence(6, 3); 
