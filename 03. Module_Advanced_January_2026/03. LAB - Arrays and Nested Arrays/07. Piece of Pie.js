@@ -6,17 +6,30 @@ function pieceOfPie(arrInp, flavorOne, flavorTwo) {
     for (let index in arrInp) {
         let currentFlavor = arrInp[index];
         if (currentFlavor == flavorOne) {
-            startingIndex = Number(index);
+            startingIndex = index;
         }
         else if (currentFlavor == flavorTwo) {
-            endingIndex = Number(index);
+            endingIndex = index;
         }
     }
 
-    arrFinal = arrInp.splice(startingIndex, (endingIndex-startingIndex+1));
+    arrFinal = arrInp.splice(startingIndex, endingIndex);
     
     return arrFinal;
 }
+
+
+// -------------------------------------------------------------------------------
+// OR
+
+// function pieceOfPie(arrInpAllFlavors, targetFlavorOne, targetFlavorTwo) {
+//     const indexOfFlavorOne = arrInpAllFlavors.indexOf(targetFlavorOne);
+//     const indexOfFlavorTwo = arrInpAllFlavors.indexOf(targetFlavorTwo);
+//     let newArr = arrInpAllFlavors.slice(indexOfFlavorOne, indexOfFlavorTwo+1);
+    
+//     return newArr;
+// }
+// -------------------------------------------------------------------------------
 
 pieceOfPie(
     [
