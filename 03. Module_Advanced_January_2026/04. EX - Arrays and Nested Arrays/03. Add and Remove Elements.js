@@ -6,11 +6,11 @@ function addAndRemoveElementArr(arrInp) {
     for (let command of arrUsrInp) {
         if (command === "add") {
             outputArr.push(num);
-            num++;
         }
         else if (command === "remove") {
             outputArr.pop();
         }
+        num++;
     }
 
     if (outputArr.length > 0) {
@@ -22,6 +22,6 @@ function addAndRemoveElementArr(arrInp) {
 }
 
 
-// addAndRemoveElementArr(['add', 'add', 'add', 'add']);
+addAndRemoveElementArr(['add', 'add', 'add', 'add']);
 addAndRemoveElementArr(['add', 'add', 'remove', 'add', 'add']);
-// addAndRemoveElementArr(['remove', 'remove', 'remove']);
+addAndRemoveElementArr(['remove', 'remove', 'remove']);
