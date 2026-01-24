@@ -1,4 +1,11 @@
-
+function factory(libraryFunctions, ordersArray) {
+    for (let order of ordersArray) {
+        let currObj = order.template;
+        for (let task of order.parts) {
+            console.log(task)
+        }
+    }
+}
 
 
 // ------------------

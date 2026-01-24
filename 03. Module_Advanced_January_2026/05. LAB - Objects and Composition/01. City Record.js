@@ -2,7 +2,7 @@ function cityRecords(cityName, cityPopulation, cityTreasury) {
     cityObj = {
         name: cityName,
         population: cityPopulation,
-        trasury: cityTreasury
+        treasury: cityTreasury
     }
 
     return cityObj;
