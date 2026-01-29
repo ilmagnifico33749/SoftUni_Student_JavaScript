@@ -3,7 +3,10 @@ function extractText() {
     // extract and join text content
     // print result in output filed
 
-    const items = Array.from(document.getElementsByTagName('li'));
+    // const items = Array.from(document.getElementsByTagName('li'));
+    // or
+    const items = Array.from(document.getElementById('items').children);
+
     const text = items.map(i => i.textContent);
 
     const output = document.getElementById('result');
