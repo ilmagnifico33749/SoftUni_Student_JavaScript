@@ -1,0 +1,158 @@
+___________________________________________________________________
+
+-------------------------------------------------------------------
+console.dir(window);
+console.dir(navigator);
+console.dir(screen);
+console.dir(location);
+console.dir(history);
+console.dir(document);
+-------------------------------------------------------------------
+___________________________________________________________________
+
+-------------------------------------------------------------------
+The global object in the browser is window
+-------------------------------------------------------------------
+___________________________________________________________________
+
+-------------------------------------------------------------------
+▪ innerHTML
+▪ textContent
+▪ value
+▪ style
+-------------------------------------------------------------------
+___________________________________________________________________
+
+-------------------------------------------------------------------
+element.innerHTML = "<p>Welcome to the DOM</p>";
+let text = element.textContent; //This is JavaScript!
+element.textContent = "Welcome to the DOM";
+-------------------------------------------------------------------
+___________________________________________________________________
+
+-------------------------------------------------------------------
+Problem 1:
+
+function edit(ref, match, replacer) {
+const content = ref.textContent;
+const matcher = new RegExp(match, 'g');
+const edited = content.replace(matcher, replacer);
+ref.textContent = edited;
+}
+-------------------------------------------------------------------
+___________________________________________________________________
+ 
+There are a few ways to find a certain HTML element
+in the DOM:
+▪ By ID - getElementById()
+▪ By class name - getElementsByClassName()
+▪ By tag name - getElementsByTagName()
+▪ By CSS selector - querySelector(),
+querySelectorAll()
+▪ These methods return a reference to the element,
+which can be manipulated with JavaScript
+___________________________________________________________________
+ 
+-------------------------------------------------------------------
+The tag name specifies the type of element – div, p, ul, etc.
+
+const element = document.getElementById('main');
+console.log(element);
+-------------------------------------------------------------------
+Class names are used for styling and easier selection
+
+const elements = document.getElementsByClassName('list');
+// Select all elements having a class named 'list'
+-------------------------------------------------------------------
+▪ Both methods return a live HTMLCollection
+ ▪ Even if only one element is selected! This is a common mistake
+-------------------------------------------------------------------
+
+___________________________________________________________________
+
+-------------------------------------------------------------------
+CSS selectors are strings that follow CSS syntax for matching
+▪ They allow very fast and powerful element matching, e.g.:
+▪ "#main" - returns the element with ID "main"
+▪ "#content div" - selects all <div>s inside #content
+▪ ".note, .alert" - all elements with class "note" or "alert"
+▪ "input[name='login']" - <input> with name "login"
+-------------------------------------------------------------------
+Select the first matching element
+
+▪ Select all matching elements
+const mainDiv = document.querySelector('#main');
+// Select the element with ID 'main'
+const element = document.querySelector('p');
+// Select the first paragraph on the page
+-------------------------------------------------------------------
+▪ Returns a static NodeList
+CSS Selectors - Example
+const elements = document.querySelectorAll('article.list');
+// Select all <article> elements having a class named 'list'
+-------------------------------------------------------------------
+HTMLCollection is live, while NodeList can be either
+live or static
+-------------------------------------------------------------------
+___________________________________________________________________
+
+-------------------------------------------------------------------
+Iterating Element Collections
+
+NodeList and HTMLCollection are NOT arrays but can
+be indexed and iterated
+▪ Both can be explicitly converted to an array
+const elements = document.querySelectorAll('p');
+const first = elements[0];
+// Select the first paragraph on the page
+for (let p of elements) { /* … */ }
+// Iterate over all entries
+const elementArray = Array.from(elements);
+const elementArr2 = [...elements]; // Spread syntax
+-------------------------------------------------------------------
+___________________________________________________________________
+
+-------------------------------------------------------------------
+Parents and Child Elements
+
+Every DOM Element has a parent
+▪ Parents can be accessed by property parentElement or parentNode
+
+let firstP = document.getElementsByTagName('p')[0];
+console.log(firstP.parentElement);
+-------------------------------------------------------------------
+When some element contains other elements, that means he is
+parent of those elements
+▪ They are children to the parent. They can be accessed by
+property children
+Parents and Child Elements
+let pElements = document.getElementsByTagName('div')[0].children;
+-------------------------------------------------------------------
+___________________________________________________________________
+
+-------------------------------------------------------------------
+Page scripts can be loaded from an external file
+▪ Use the src attribute of the script element
+▪ Functions from script files are in the global scope
+▪ Can be referenced and executed from events and inline scripts
+▪ Multiple script files in a page can see each other
+▪ Pay attention to load order!
+-------------------------------------------------------------------
+___________________________________________________________________
+
+-------------------------------------------------------------------
+Control Content via Visibility
+
+Content can be hidden or revealed by changing its display style
+▪ This is a common technique to display content dynamically
+
+▪ To hide an element:
+const element = document.getElementById('main');
+element.style.display = 'none';
+
+▪ To reveal an element, set display to anything that isn't 'none'
+(including empty string)
+
+element.style.display = ''; // Can be 'inline', 'block', etc.
+-------------------------------------------------------------------
+___________________________________________________________________

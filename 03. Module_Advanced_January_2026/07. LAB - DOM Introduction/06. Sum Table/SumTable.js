@@ -13,7 +13,10 @@ function sumTable() {
     let sum = 0;
 
     for (let row of rows) {
+        // const lastColumn = row.children[row.children.length-1];
+        // or
         const lastColumn = row.lastElementChild;
+
         sum += Number(lastColumn.textContent);
     }
 
