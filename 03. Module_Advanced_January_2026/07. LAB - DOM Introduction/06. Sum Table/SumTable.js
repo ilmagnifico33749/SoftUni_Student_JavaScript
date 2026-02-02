@@ -36,7 +36,6 @@ function sumTable() {
     for (let index=0; index<(rows.length-2); index++) {
         if (index%2 !== 0) {
             let currentPrice = Number(rows[index].textContent);
-            // console.log(currentPrice)
             sum += parseFloat(currentPrice);
         }
     }
