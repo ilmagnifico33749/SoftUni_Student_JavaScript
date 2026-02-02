@@ -8,20 +8,38 @@ function sumTable() {
     // -- parse content as Number and add to sum
     // print output in element with id "sum"
 
-    const rows = Array.from(document.querySelector('table').querySelectorAll('tr')).slice(1, -1);
+    // Version 1 - From Lecture
+    // ------------------------
+    // const rows = Array.from(document.querySelector('table').querySelectorAll('tr')).slice(1, -1);
 
-    let sum = 0;
+    // let sum = 0;
 
-    for (let row of rows) {
-        // const lastColumn = row.children[row.children.length-1];
-        // or
-        const lastColumn = row.lastElementChild;
+    // for (let row of rows) {
+    //     // const lastColumn = row.children[row.children.length-1];
+    //     // or
+    //     const lastColumn = row.lastElementChild;
 
-        sum += Number(lastColumn.textContent);
-    }
+    //     sum += Number(lastColumn.textContent);
+    // }
 
-    console.log(sum)
+    // console.log(sum)
 
-    document.getElementById('sum').textContent = sum.toFixed(2);
+    // document.getElementById('sum').textContent = sum.toFixed(2);
+
+// =================================================================================================
     
+    // Version 2 = Author's
+
+    const rows = document.querySelectorAll(`table tr td`);
+    let sum = 0;
+    let sumField = rows[rows.length-1];
+    for (let index=0; index<(rows.length-2); index++) {
+        if (index%2 !== 0) {
+            let currentPrice = Number(rows[index].textContent);
+            // console.log(currentPrice)
+            sum += parseFloat(currentPrice);
+        }
+    }
+    // console.log(sum)
+    sumField.textContent = String(sum);
 }
