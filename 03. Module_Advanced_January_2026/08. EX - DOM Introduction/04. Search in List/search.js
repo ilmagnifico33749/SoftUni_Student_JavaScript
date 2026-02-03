@@ -21,11 +21,7 @@ function search() {
       }
    }
 
-   let outputMessage = `${numberOfMatches} matches found`
+   let outputMessage = `${numberOfMatches} matches found`;
 
    fieldResult.textContent = outputMessage;
-
-   // numberOfMatches = 0;
-   // lettersToSearch = '';
-   // cities = citiesCopy;
 }
