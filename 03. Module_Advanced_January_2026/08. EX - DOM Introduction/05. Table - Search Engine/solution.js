@@ -31,7 +31,6 @@ function solve() {
                // TO SOMEHWO ADD CLASS SELECT
                currentRow.classList.add('select');
             }
-
          }
       }
 
