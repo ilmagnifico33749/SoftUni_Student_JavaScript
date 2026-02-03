@@ -13,5 +13,4 @@ function toggle() {
         extraText.display = 'none';
         buttonText.textContent = 'More';
     }
-
 }
