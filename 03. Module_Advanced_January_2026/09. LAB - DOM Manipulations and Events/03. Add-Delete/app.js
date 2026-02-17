@@ -14,18 +14,13 @@ function addItem() {
 
     // Attaching the deletion behavior
     deleteLink.addEventListener('click', deleteItemFunction);
-    listOfItems.appendChild(deleteLink);
+    newLiItem.appendChild(deleteLink);
 
     function deleteItemFunction() {
         newLiItem.remove();
     }
     
-    
-    newLiItem.appendChild(deleteLink);
-
     listOfItems.appendChild(newLiItem)
 
     userInputTextField.value = '';
-    Event: mouse
-
 }
