@@ -1,12 +1,9 @@
-const x = 42;
-const getX = function () {
-    return this.x;
+array1 = [9, 10, 12];
+
+let found = array1.find(isFound);
+
+function isFound(element) {
+    return element > 10;
 }
 
-const module = {x, getX};
-
-const unboutGetX = module.getX;
-// console.log(unboutGetX());
-
-const boundGetX = unboutGetX.bind(module);
-console.log(boundGetX());
+console.log(found);
