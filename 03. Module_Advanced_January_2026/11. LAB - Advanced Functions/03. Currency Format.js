@@ -1,9 +1,11 @@
 // To do: function createFormatter()
 
-function createFormatter(separator, symbol, symbolFirst, amountFormated) {
-    a = amountFormated
-    return a;
-};
+function createFormatter(separator, symbol, symbolFirst, formatter) {
+    return function(value) {
+        return formatter(separator, symbol, symbolFirst, value);
+    };
+}
+
 
 function currencyFormatter(separator, symbol, symbolFirst, value) {
     let result = Math.trunc(value) + separator;
@@ -21,3 +23,4 @@ console.log(dollarFormatter(2.709)); // $ 2,71
 
 
 // console.log(currencyFormatter(',', "$", true, 2000))
+
