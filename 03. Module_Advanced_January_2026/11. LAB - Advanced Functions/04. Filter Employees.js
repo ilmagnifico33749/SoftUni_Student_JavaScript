@@ -1,12 +1,8 @@
 function filterEmployees(data, criteria) {
-
     let dataConvToArr = JSON.parse(data);
-    // console.log(dataConvToArr);
-    // console.log(criteria);
     let [criteriaKey, criteriaValue] = criteria.split("-");
-    // console.log(criteriaKey, criteriaValue);
 
-    let filteredEmployeesArr = dataConvToArr
+    filteredEmployeesArr = dataConvToArr
         .filter((currentObject) => criteria === "all" || currentObject[criteriaKey] == criteriaValue)
         .forEach((currentObject, index) =>
             console.log(`${index}. ${currentObject.first_name} ${currentObject.last_name} - ${currentObject.email}`) 
